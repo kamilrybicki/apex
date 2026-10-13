@@ -30,24 +30,27 @@ This package handles that scenario by:
 ## Installation & Configuration
 
 1. **Install package**
-   Run the provided SQL scripts in your database schema parsing the APEX application:
+
+   Run the provided SQL scripts in your database schema your APEX application is built on:
    ```sql
    @apex_human_task_extension_pkg.pks
    @apex_human_task_extension_pkg.pkb
    ```
 
 2. **Configure the Business Administrator**
+
    The package relies on a constant `gc_ba_username` (default: `TECHNICAL_HUMAN_TASK_BA_USER`). 
    - Navigate to **Shared Components > Task Definitions** in your APEX Builder.
    - Edit your Task Definition.
    - Under **Participants**, add `TECHNICAL_HUMAN_TASK_BA_USER` as a **Business Administrator**.
+     - The user doesn't necessarily need to exist in the application. Whether or not they are required depends on the application and environment configuration.
    - *(Optional)* If you wish to use a different username, modify the `gc_ba_username` constant in the package specification before installing the package.
 
 
 ## API Reference
 
 All procedures in this package mirror the native `APEX_HUMAN_TASK` subprograms for APEX version 24.2 but include two additional parameters:
-* `p_use_business_admin_session (boolean)`: Defaults to `false`. Set to `true` to execute operation using the Business Administrator session.
+* `p_use_business_admin_session (boolean)`: Defaults to `false` (when `false`, the package works as native). Set to `true` to execute operation using the Business Administrator session.
 * `p_comment (varchar2)`: An optional comment added to the task.
 
 ### Available Subprograms

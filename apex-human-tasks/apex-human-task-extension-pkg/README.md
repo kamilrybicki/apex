@@ -31,7 +31,7 @@ This package handles that scenario by:
 
 1. **Install package**
 
-   Run the provided SQL scripts in your database schema your APEX application is built on:
+   Go to `src/` catalog and run the provided SQL scripts in your database schema your APEX application is built on:
    ```sql
    @apex_human_task_extension_pkg.pks
    @apex_human_task_extension_pkg.pkb
